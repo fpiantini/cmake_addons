@@ -12,7 +12,7 @@
 set(gtestDir "${CMAKE_BINARY_DIR}/googletest-download")
 
 # --- Prepare CMakeLists.txt for googletest ---------------------------------------
-configure_file(${cmakeAddonsDir}/googletest.CMakeLists.txt.in ${gtestDir}/CMakeLists.txt)
+configure_file(${CMAKE_CURRENT_LIST_DIR}/googletest.CMakeLists.txt.in ${gtestDir}/CMakeLists.txt)
 # info on configure_file()
 # - from https://cmake.org/cmake/help/latest/command/configure_file.html (20201114)
 #
