@@ -262,7 +262,9 @@ function(setup_target_for_coverage_lcov)
             ${Coverage_NAME}.capture
             ${Coverage_NAME}.total
             ${Coverage_NAME}.info
-            ${Coverage_NAME}  # report directory
+            # FP --- Specify a directory as a BYPRODUCTS does not currently work
+            # with Ninja build system, so ${Coverage_NAME} is commented
+            #${Coverage_NAME}  # report directory
 
         WORKING_DIRECTORY ${PROJECT_BINARY_DIR}
         DEPENDS ${Coverage_DEPENDENCIES}
@@ -418,7 +420,9 @@ function(setup_target_for_coverage_gcovr_html)
             --object-directory=${PROJECT_BINARY_DIR}
             -o ${Coverage_NAME}/index.html
 
-        BYPRODUCTS ${PROJECT_BINARY_DIR}/${Coverage_NAME}  # report directory
+        # FP --- Specify a directory as a BYPRODUCTS does not currently work
+        # with Ninja build system, so it is commented
+        #BYPRODUCTS ${PROJECT_BINARY_DIR}/${Coverage_NAME}  # report directory
         WORKING_DIRECTORY ${PROJECT_BINARY_DIR}
         DEPENDS ${Coverage_DEPENDENCIES}
         VERBATIM # Protect arguments to commands
